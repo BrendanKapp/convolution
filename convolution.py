@@ -13,11 +13,10 @@ class Polynomial:
         """
         Parse a string @f of the format:
         CxM where C is the coefficient
-        and M is the power.
+        and M is the power. Store it in
+        the @self.F variable.
         Ex:
         f = "3x2 + 2x1 + 1x0"
-        @return an array of order N with coefficients
-        C[i] at each index corresponding to their power.
         """
         terms = f.split("+")
         for term in terms:
@@ -56,7 +55,6 @@ class Polynomial:
         """
         Print the polynomial
         """
-        output = ""
         first = True
         for i in range(self.N - 1, -1, -1):
             if (self.F[i] == 0):
