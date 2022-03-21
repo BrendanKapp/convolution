@@ -1,4 +1,7 @@
 class Polynomial:
+    """
+    A class that parses and stores polynomials.
+    """
     def __init__(self, f, N):
         self.f = f
         self.N = N
@@ -71,6 +74,10 @@ class Polynomial:
 
 
 def convolution(f, g, N):
+    """
+    Print the results of a convolution operation on
+    a set of polynomial strings @f * @g of size @N.
+    """
     hpoly = Polynomial("", N)
     fpoly = Polynomial(f, N)
     gpoly = Polynomial(g, N)
@@ -87,6 +94,7 @@ def convolution(f, g, N):
 
 
 
-#g = input("Enter f(x): ")
-#f = input("Enter g(x): ")
-convolution("3x^2 + 2x", "3x^2 + x + 1", 3)
+g = input("Enter f(x): ")
+f = input("Enter g(x): ")
+N = input("Enter N: ")
+convolution(f, g, N)
