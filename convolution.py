@@ -18,6 +18,9 @@ class Polynomial:
         Ex:
         f = "3x2 + 2x1 + 1x0"
         """
+        f = f.replace("-", "+ -").strip()
+        f = f.replace("- ", "-")
+        f = f.replace("-x", "-1x")
         terms = f.split("+")
         for term in terms:
             if term.count("x^") != 0:
@@ -79,7 +82,9 @@ def convolution(f, g, N):
     hpoly = Polynomial("", N)
     fpoly = Polynomial(f, N)
     gpoly = Polynomial(g, N)
+    print("f(x) =", end="\n\t")
     fpoly.print()
+    print("g(x) =", end="\n\t")
     gpoly.print()
     for i in range(0, N - 1):
         val = 0
@@ -88,6 +93,7 @@ def convolution(f, g, N):
                 if (j + k % N == i):
                     val += fpoly.getc(j) * gpoly.getc(k) 
         hpoly.setc(i, val)
+    print("h(x) =", end="\n\t")
     hpoly.print()
 
 
@@ -95,4 +101,4 @@ def convolution(f, g, N):
 g = input("Enter f(x): ")
 f = input("Enter g(x): ")
 N = input("Enter N: ")
-convolution(f, g, N)
+convolution(f, g, int(N))
